@@ -35,7 +35,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: chegeizoh50@gmail.com
       PGADMIN_DEFAULT_PASSWORD: 12345
     ports:
-      - "8082:80"
+      - "80:80"
     links:
       - db
     depends_on:
