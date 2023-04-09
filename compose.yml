@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  pauls-fund:
+#    build: .
+    image: docker.io/kamau01/pauls-fund:latest
+    container_name: pauls
+    ports:
+      - "8081:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: "jdbc:postgresql:pf_db?user=postgres&password=12345"
+      HOST: db
+      DB_PORT: 5432
+      DB_NAME: pf_db
+      DB_USER: postgres
+      DB_PASSWORD: 12345
+    stdin_open: true
+    tty: true
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: pf_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: chegeizoh50@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 12345
+    ports:
+      - "8082:80"
+    links:
+      - db
+    depends_on:
+      - db
