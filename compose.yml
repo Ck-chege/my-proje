@@ -6,6 +6,7 @@ services:
     container_name: pauls
     ports:
       - "8080:8080"
+      - "443:8080"
     depends_on:
       - db
     environment:
