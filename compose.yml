@@ -28,7 +28,7 @@ services:
       POSTGRES_DB: pf_db
     ports:
       - "5432:5432"
-     mem_limit: 200M
+    mem_limit: 200M
     volumes:
       - ./data:/var/lib/postgresql/data
   pgadmin:
@@ -39,7 +39,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: 12345
     ports:
       - "80:80"
-     mem_limit: 200M
+    mem_limit: 200M
     links:
       - db
     depends_on:
