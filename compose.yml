@@ -21,6 +21,7 @@ services:
     tty: true
   db:
     image: postgres
+    container_name: db
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -34,6 +35,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     restart: always
+    container_name: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: chegeizoh50@gmail.com
       PGADMIN_DEFAULT_PASSWORD: 12345
