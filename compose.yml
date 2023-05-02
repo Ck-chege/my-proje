@@ -7,6 +7,7 @@ services:
     ports:
       - "8080:8080"
       - "443:8080"
+      - "80:8080"
     depends_on:
       - db
     environment:
@@ -32,17 +33,17 @@ services:
     mem_limit: 200M
     volumes:
       - ./data:/var/lib/postgresql/data
-  pgadmin:
-    image: dpage/pgadmin4
-    restart: always
-    container_name: pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: chegeizoh50@gmail.com
-      PGADMIN_DEFAULT_PASSWORD: 12345
-    ports:
-      - "80:80"
-    mem_limit: 200M
-    links:
-      - db
-    depends_on:
-      - db
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   restart: always
+  #   container_name: pgadmin
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: chegeizoh50@gmail.com
+  #     PGADMIN_DEFAULT_PASSWORD: 12345
+  #   ports:
+  #     - "80:80"
+  #   mem_limit: 200M
+  #   links:
+  #     - db
+  #   depends_on:
+  #     - db
