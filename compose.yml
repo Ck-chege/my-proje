@@ -21,16 +21,15 @@ services:
     mem_limit: 300M
     tty: true
   font:
-    image: pauls-front
-    container_name: pauls-front
+    image: docker.io/kamau01/pauls-public-web:latest
+    container_name: public-web
     ports:
-      - "3000:80"
-      - "443:80"
-      # - "8081:8080"
+      - "443:443"
+      - "8081:80"
     depends_on:
       - pauls-fund
     environment:
-      REACT_APP_BASE_URL: "http://pauls:8080"
+      REACT_APP_BASE_URL: "http://pauls-fund:8080"
     stdin_open: true
     mem_limit: 100M
   db:
