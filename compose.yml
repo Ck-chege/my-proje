@@ -24,7 +24,7 @@ services:
     image: docker.io/kamau01/pauls-public-web:latest
     container_name: public-web
     ports:
-      - "443:443"
+      # - "443:443"
       # - "80:80"
     depends_on:
       - pauls-fund
