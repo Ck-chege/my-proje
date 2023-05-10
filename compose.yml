@@ -25,7 +25,8 @@ services:
     container_name: public-web
     ports:
       # - "443:443"
-      - "80:443"
+      # - "80:443"
+      - "8082:443"
     depends_on:
       - pauls-fund
     environment:
