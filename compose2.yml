@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  font:
+    image: docker.io/kamau01/pauls-public-web:latest
+    container_name: public-web
+    ports:
+      - "443:443"
+      # - "80:443"
+      # - "8082:443"
+    
+    environment:
+      REACT_APP_BASE_URL: http://pauls-fund:8080
+    stdin_open: true
+    mem_limit: 100M
